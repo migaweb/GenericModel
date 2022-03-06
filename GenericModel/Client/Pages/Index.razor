@@ -1,0 +1,28 @@
+﻿@page "/"
+@using GenericModel.Shared.Filters;
+@inject HttpClient Http
+
+<div>
+    @if (filters != null)
+    {
+        @foreach (var filter in filters)
+        {
+            <div>@filter.Name</div>
+            <ul>
+                @foreach(var filterOption in filter.FilterOptions)
+                {
+                    @*<li>@filterOption.Name (@filterOption.Count): </li>*@
+                }
+            </ul>
+        }
+    }
+</div>
+
+@code {
+    private IEnumerable<Filter>? filters;
+
+    protected override async Task OnInitializedAsync()
+    {
+        filters = await Http.GetFromJsonAsync<IEnumerable<Filter>>("Filter");
+    }
+}
