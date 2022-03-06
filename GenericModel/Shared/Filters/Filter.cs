@@ -2,7 +2,7 @@
 public class Filter
 {
   public string? Name { get; set; } = null;
-  public IEnumerable<object> FilterOptions { get; set; } = new List<FilterOption>();
+  public IEnumerable<dynamic> FilterOptions { get; set; } = new List<FilterOption>();
 }
 
 public class FilterOptionValueType<T> : FilterOption

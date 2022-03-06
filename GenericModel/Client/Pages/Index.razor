@@ -11,7 +11,8 @@
             <ul>
                 @foreach(var filterOption in filter.FilterOptions)
                 {
-                    @*<li>@filterOption.Name (@filterOption.Count): </li>*@
+                    //Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(filterOption));
+                    <li>@filterOption.GetProperty("name") @filterOption.GetProperty("count"): @filterOption.GetProperty("value")</li>
                 }
             </ul>
         }
@@ -24,5 +25,6 @@
     protected override async Task OnInitializedAsync()
     {
         filters = await Http.GetFromJsonAsync<IEnumerable<Filter>>("Filter");
+        //Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(filters));
     }
 }

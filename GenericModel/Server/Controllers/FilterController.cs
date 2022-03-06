@@ -26,13 +26,13 @@ public class FilterController : ControllerBase
     }));
 
     filters.Add(new Model.Filter("Prices", new List<Model.FilterOptionValueType<decimal>>() {
-      new () { Count = 1, Name = "12,5", Value = 12.5M },
       new () { Count = 1, Name = "20", Value = 20M },
+      new () { Count = 1, Name = "12,5", Value = 12.5M },
     }));
 
     filters.Add(new Model.Filter("Diameter", new List<Model.FilterOptionValueType<int>>() {
-      new () { Count = 1, Name = "34", Value = 34 },
       new () { Count = 1, Name = "102", Value = 102 },
+      new () { Count = 1, Name = "34", Value = 34 },
     }));
 
     var mappedResult = _mapper.Map<List<Filter>>(filters);
